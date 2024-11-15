@@ -1,3 +1,2 @@
 [build]
   publish = "Frontend/views"
-  command = "npm run build"  # Si tienes algún proceso de build, si no solo indica la carpeta views
