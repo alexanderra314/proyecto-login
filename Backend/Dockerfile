@@ -6,7 +6,7 @@ WORKDIR /app
 COPY ./package*.json ./
 RUN npm install
 
-COPY ./Backend ./Backend
+COPY . .
 #COPY . .
 # Expone el puerto que usa tu servidor
 EXPOSE 3000
