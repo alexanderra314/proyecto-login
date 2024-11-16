@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const authRoutes = require('./auth');
+const authRoutes = require('./routes/auth');
 
 const app = express();
 
@@ -12,6 +12,12 @@ mongoose.connect(process.env.MONGO_URI, {
 })
 .then(() => console.log('Conectado a MongoDB'))
 .catch((error) => console.error('Error de conexión:', error));
+
+app.use(cors({
+  origin: 'https://proyecto-login-alexanderra314.netlify.app', // URL del frontend
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true,
+}));
 
 app.use(bodyParser.json());
 app.use(express.static('public'));
