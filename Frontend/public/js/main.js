@@ -1,5 +1,5 @@
 // URL base del backend (actualiza con tu dominio o IP pública)d
-const API_BASE_URL = "https://proyecto-login-seven.vercel.app/"; // Sustituye con la URL de tu backend desplegado
+const API_BASE_URL = "https://proyecto-login-backend.onrender.com"; // Sustituye con la URL de tu backend desplegado
 
 // Manejador para el formulario de registro
 document.getElementById('registerForm').addEventListener('submit', async (e) => {
