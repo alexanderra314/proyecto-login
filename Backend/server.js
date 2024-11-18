@@ -1,17 +1,20 @@
-require('dotenv').config();
+//require('dotenv').config();
+require('dotenv').config({ path: './Backend/.env' });
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const authRoutes = require('./routes/auth');
+const cors = require('cors');
 
 const app = express();
 
-mongoose.connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
-.then(() => console.log('Conectado a MongoDB'))
-.catch((error) => console.error('Error de conexión:', error));
+//mongoose.connect(process.env.MONGO_URI, {
+//    useNewUrlParser: true,
+//    useUnifiedTopology: true,
+//})
+//.then(() => console.log('Conectado a MongoDB'))
+//.catch((error) => console.error('Error de conexión:', error));
+mongoose.connect(process.env.MONGO_URI)
 
 app.use(cors({
   origin: 'https://proyecto-login-alexanderra314.netlify.app', // URL del frontend
@@ -20,7 +23,7 @@ app.use(cors({
 }));
 
 app.use(bodyParser.json());
-app.use(express.static('public'));
+//app.use(express.static('public'));
 app.use('/api', authRoutes);
 
 app.get('/', (req, res) => {

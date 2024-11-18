@@ -2,7 +2,7 @@
 require('dotenv').config();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const User = require('../backend/models/User');  // Importa el modelo de usuario
+const User = require('../models/User'); // Importa el modelo de usuario
 
 module.exports = async (req, res) => { // Aquí estamos exportando la función para manejar las rutas
     if (req.method === 'POST') {
