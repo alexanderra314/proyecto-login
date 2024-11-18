@@ -1,6 +1,5 @@
 [build]
-  base = "Frontend" # Especifica el directorio base, en tu caso 'Frontend'.
-  publish = "/public" # Especifica la carpeta pública con los archivos estáticos.
+  publish = "/public"
 
 [[redirects]]
 from = "/api/*"
