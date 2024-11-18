@@ -20,24 +20,15 @@ mongoose.connect(process.env.MONGO_URI, {
 //mongoose.connect(process.env.MONGO_URI)
 
 app.use(cors({
-  origin: 'https://proyecto-login-alexanderra314.netlify.app', // URL del frontend
+  origin: 'https://proyecto-login-alexanderra314.netlify.app', // Asegúrate de que esta URL sea la correcta
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true,
+  allowedHeaders: ['Content-Type', 'Authorization'], // Asegura que estos encabezados estén permitidos
+  credentials: true, // Permite el envío de cookies si es necesario
 }));
-
 app.use(bodyParser.json());
 //app.use(express.static('public'));
 app.use('/api', authRoutes);
 
-// Servir archivos estáticos desde la carpeta 'public'
-// Servir archivos estáticos desde la carpeta 'views' (donde están css y js)
-//app.use('/views/css', express.static(path.join(__dirname, 'views', 'css')));
-//app.use('/views/js', express.static(path.join(__dirname, 'views', 'js')));
-//
-//// Servir el archivo index.html desde la carpeta 'views'
-//app.get('/', (req, res) => {
-//  res.sendFile(path.join(__dirname, 'views', 'index.html'));
-//});
 
 
 const PORT = process.env.PORT || 3000;
